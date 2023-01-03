@@ -181,9 +181,10 @@ for(let keyValue of Object.entries(randomUser)){
 
       console.log('\t L2 : ' ,key);
     }
-  }
+  } 
   
 }
+
 
 
 
