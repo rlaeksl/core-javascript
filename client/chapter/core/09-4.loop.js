@@ -1,123 +1,118 @@
 /* ---------------------------------------------------------------------- */
-/* For Of Loop                                                            */
+/* For In Loop                                                            */
 /* ---------------------------------------------------------------------- */
 
 
-// String, Array, Array-like  =  iterable
 
 
-const arrayLike = {
-  0: 'body',
-  1: 'head',
-  2: 'div',
-  length: 3,
-}
-
-// for(let value of arrayLike){
-  // console.log(value);
-// }
-
-
-let str = '유사배열';
-
-
-
-// console.log(str);
-
-for(let value of str){
-  console.log(value);
-}
-
-
-
-
-
-
-
-const languages = [
-  {
-    id: 'ecma-262',
-    name: 'JavaScript',
-    creator: 'Brendan Eich',
-    createAt: 1995,
-    standardName: 'ECMA-262',
-    currentVersion: 2022,
-  },
-  {
-    id: 'java',
-    name: 'Java',
-    creator: 'James Gosling',
-    createAt: 1995,
-    standardName: null,
-    currentVersion: 18,
-  },
-  {
-    id: 'ecma-334',
-    name: 'C#',
-    creator: 'Anders Hejlsberg',
-    createAt: 2000,
-    standardName: 'ECMA-334',
-    currentVersion: 8,
-  },
-];
-
-
-
-// for ~ of 문
-// - 특정 조건에서 건너띄기
-
-for(let value of languages){
-  // console.table(value.name);
-  
-  if(value.name === 'Java') continue;
-
-  console.table(value);
-  
-}
-
-
-
-// - 특정 조건에서 중단하기
-
-
-
-
-const randomUser = {
-  gender: 'female',
-  name: { title: 'Ms', first: 'Carol', last: 'May' },
-  location: {
-    street: { number: 9162, name: 'Church Road' },
-    city: 'Birmingham',
-    state: 'Cumbria',
-    country: 'United Kingdom',
-    postcode: 'FO5E 4TN',
-    coordinates: { latitude: '-4.3301', longitude: '155.0223' },
-    timezone: { offset: '-4:00', description: 'Atlantic Time (Canada), Caracas, La Paz' },
-  },
-  email: 'carol.may@example.com',
-  login: {
-    uuid: '39e4e214-7f66-44a6-a3ba-3b5ce46b8e25',
-    username: 'redduck745',
-    password: 'picks',
-    salt: '8xzqOzAn',
-    md5: '7250e4042c2367cc82487f798c7c5253',
-    sha1: '6c0e2fac669d6d7f11fb0bab52493f441cf5834b',
-    sha256: '9e49256b8917113750533c24c015336af43d5d7130cf8faa19054c1ba36e7de8',
-  },
-  dob: { date: '1962-12-07T21:51:26.781Z', age: 59 },
-  registered: { date: '2018-06-08T04:07:17.788Z', age: 4 },
-  phone: '022 1280 9236',
-  cell: '07653 428700',
-  id: { name: 'NINO', value: 'SH 44 98 72 L' },
-  picture: {
-    large: 'https://randomuser.me/api/portraits/women/21.jpg',
-    medium: 'https://randomuser.me/api/portraits/med/women/21.jpg',
-    thumbnail: 'https://randomuser.me/api/portraits/thumb/women/21.jpg',
-  },
-  nat: 'GB',
+const javaScript = {
+  creator: 'Brendan Eich',
+  createAt: '1995.05',
+  standardName: 'ECMAScript',
+  currentVersion: 2022,
+  // hasOwnProperty: function (){
+  //   return '헤헤'
+  // }
 };
 
-// 객체의 키, 값 순환
-// - for ~ in 문
-// - for ~ of 문
-// - 성능 비교 진단
+let key = 'valueOf';
+
+// console.log( key in javaScript );
+
+
+// 객체의 속성(property) 포함 여부 확인 방법
+// - 모든 객체가 사용 가능하도록 속성이 확장되었을 때 포함 여부 결과는?
+
+// console.log(javaScript.hasOwnProperty(key));
+Object.prototype.nickName = 'tiger'
+
+// 객체 자신의(own) 속성(property)인지 확인(has)하는 방법
+// - "자신의 속성을 가지고있는지 확인 방법"이 덮어쓰여질 수 있는 위험에 대처하는 안전한 방법은?
+
+console.log(Object.prototype.hasOwnProperty.call(javaScript,key));
+
+
+// let a = {}
+
+// Object.prototype  === {} 
+
+for(let key in javaScript){
+
+  if( ({}).hasOwnProperty.call(javaScript,key)){
+      console.log(key);
+  }
+
+}
+
+
+const user = {
+  name: 'tiger',
+  age : 32
+}
+
+
+function hello (a,b,c){
+  console.log(a,b,c);
+  console.log(this);
+}
+
+
+
+hello.call(user,1,2,3)
+
+
+
+
+
+
+// for ~ in 문
+// - 객체 자신의 속성만 순환하려면?
+
+// - 배열 객체 순환에 사용할 경우?
+//  객체에 양보하세요 ..
+
+
+
+let tens = [10,100,1000,10000];
+
+
+for(let value in tens){
+  if( ({}).hasOwnProperty.call(tens,value)){
+    console.log(tens[value]);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
