@@ -75,27 +75,16 @@ console.log( first.dataset.play ); // get
 //  유틸 함수 
 // get 함수 만들기 
 
-function getAttr(node,prop){
-  
-  if(typeof node === 'string'){
-    node = getNode(node);
-  }
-
-  node.getAttribute(prop);
-  
-}
-
-
-getAttr('.first','class') // first 
 
 
 
+console.log( attr('.first','id','container') );
 
 console.assert( getAttr('.first','class') === 'first' );
 
 // set 함수 만들기 
 
-// common 함수 만들기 
+// attr 함수 만들기 
 
 
 /* 
