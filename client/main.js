@@ -11,6 +11,7 @@
 const firstInput = getNode('#firstNumber');
 const secondInput = getNode('#secondNumber');
 const done = getNode('#done');
+const result = getNode('.result');
 
 
 function getInputValue(node){
@@ -40,9 +41,9 @@ function handler(e){
 
   console.log(total);
 
-  clearContents('.result');
+  clearContents(result);
 
-  insertLast('.result',total);
+  insertLast(result,total);
 }
 
 done.addEventListener('click',handler)
